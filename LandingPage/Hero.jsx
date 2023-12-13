@@ -132,7 +132,7 @@ export default function Hero() {
               Making Crypto Hoppin with Laughter!
 
               </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-200">
+              <p className="mt-6 md:text-lg text-sm  leading-8 text-gray-200">
               Contract: 0xa7ffb399d44eb830f01751052C75d14f0b47E779
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
@@ -178,7 +178,7 @@ export default function Hero() {
       </main>
       <About />
       <Tokenomics />
-   
+      <Roadmap />
     </div>
  
     </>
