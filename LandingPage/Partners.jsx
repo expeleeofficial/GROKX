@@ -52,7 +52,7 @@ const Partners = () => {
          <ul role="list" className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-12 sm:space-y-0 lg:gap-x-8">
            {people.map((person) => (
              <li key={person}>
-               <div className="flex items-center space-x-4 lg:space-x-6">
+               <div className="flex items-center justify-center space-x-4 lg:space-x-6">
                  <img className="h-28 w-56 rounded-xl bg-white lg:h-28 lg:w-56" src={person.imageUrl} alt="" />
                 
                </div>
