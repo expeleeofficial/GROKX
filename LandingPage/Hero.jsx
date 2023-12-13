@@ -50,7 +50,7 @@ export default function Hero() {
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img className="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+              <img className="h-8" src="https://static.wixstatic.com/media/82da36_82a64ea44f354865a84a345409a5d5f5~mv2.png/v1/fill/w_531,h_128,al_c,lg_1,q_85,enc_auto/82da36_82a64ea44f354865a84a345409a5d5f5~mv2.png" alt="" />
             </a>
           </div>
           <div className="flex lg:hidden">
