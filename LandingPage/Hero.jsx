@@ -178,7 +178,7 @@ export default function Hero() {
       </main>
       <About />
       <Tokenomics />
-      <Roadmap />
+   
     </div>
  
     </>
