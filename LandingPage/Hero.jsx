@@ -1,9 +1,10 @@
-/* This example requires Tailwind CSS v3.0+ */
+
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import About from './About'
 import Tokenomics from './Tokenomics'
 import Roadmap from './Roadmap'
+import Partners from './Partners'
 
 
 const navigation = [
@@ -179,6 +180,7 @@ export default function Hero() {
       <About />
       <Tokenomics />
       <Roadmap />
+      <Partners />
     </div>
  
     </>
