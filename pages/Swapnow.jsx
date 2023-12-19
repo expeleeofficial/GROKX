@@ -136,6 +136,13 @@ export default function Swapnow() {
                 >
               Swap Now
                 </a>
+
+                <a
+                href="#"
+                className="rounded-md bg-yellow-200 px-3.5 py-1.5 text-base font-semibold leading-7 text-black shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+          Staking
+              </a>
               
               </div>
             </div>
