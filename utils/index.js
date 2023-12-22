@@ -148,105 +148,41 @@ export default class Web3Utils {
         }
     }
 
-    async getDepositETHLogs(network) {
-        if (network === 97) {
-            const topic0 = "0x7805cf276f2510fb0a2706973c477dda0df8017ba2a2f7e79534df94097a7c3a"
-            const scbUnitDecimals = 1 * 10 ** 18
-            const busdUnitDecimals = 1 * 10 ** 18
-            const ethUnitDecimals = 1 * 10 ** 18
-            const url = `https://api-testnet.bscscan.com/api?module=logs&action=getLogs&topic0=${topic0}&address=${this.SCB_VAULT}`
-            const {data} = await axios.get(url)
-            const {result} = data
-            const iface = new Interface(DEPOSIT_EVENT_ABI)
-            const mappedResult = result.map((item) => {
-                const {data} = item
-                console.log(data)
-                const decodedResult = iface.parseLog(item)
-                const {depositor, depositTime, scbFee, depositedETH, busdReceived} = decodedResult.args
+    async swap(amount, path) {
+        try {
+            const decimals = await this.getDecimal(path[0])
+            const quantizedAmount = parseUnits(amount.toString(), decimals).toString()
+            const config = await prepareWriteContract({
+                address: this.ROUTER_ADDRESS,
+                abi: ROUTER_ABI,
+                functionName: "swapExactETHForTokens",
+                args: [0, path, this.address, Date.now() + 1000 * 60 * 10],
+                value: quantizedAmount
+            });
+            const {hash} = await writeContract(config);
+            await waitForTransaction({hash});
+        } catch (e) {
+            console.log(e)
+        }
 
-                return {
-                    id: result.indexOf(item),
-                    user:depositor,
-                    time: new Date(parseInt(depositTime)*1000).toLocaleString(),
-                    fee: (parseInt(scbFee) / scbUnitDecimals).toFixed(4),
-                    deposited: (parseInt(depositedETH) / ethUnitDecimals).toFixed(4),
-                    busd: (parseInt(busdReceived) / busdUnitDecimals).toFixed(4)
-                }
-
-            })
-
-            return mappedResult
-        } else if (network === 56) {
-            const {data} = await axios.get(this.EXPLORER_URL)
-            return data
-        } else if (network === 1) {} else if (network === 3) {}
     }
 
-    async getDepositBUSDLogs(network) {
-        if (network === 97) {
-            const topic0 = "0x766074b3b23bdd14a4a4563f120565b3a267ca55a213352273991702b6e1cc5e"
-            const scbUnitDecimals = 1 * 10 ** 18
-            const busdUnitDecimals = 1 * 10 ** 18
-            const url = `https://api-testnet.bscscan.com/api?module=logs&action=getLogs&topic0=${topic0}&address=${this.SCB_VAULT}`
-            const {data} = await axios.get(url)
-            const {result} = data
-            const iface = new Interface(DEPOSIT_EVENT_ABI)
-            const mappedResult = result.map((item) => {
-                const {data} = item
-                console.log(data)
-                const decodedResult = iface.parseLog(item)
-                const {depositor, depositTime, scbFee, depositedBUSD, busdReceived} = decodedResult.args
+    async swapTokens(amount, path) {
+        try {
+            const decimals = await this.getDecimal(path[0])
+            const quantizedAmount = parseUnits(amount.toString(), decimals).toString()
+            const config = await prepareWriteContract({
+                address: this.ROUTER_ADDRESS,
+                abi: ROUTER_ABI,
+                functionName: "swapExactTokensForTokens",
+                args: [quantizedAmount, 0, path, this.address, Date.now() + 1000 * 60 * 10]
+            });
+            const {hash} = await writeContract(config);
+            await waitForTransaction({hash});
+        } catch (e) {
+            console.log(e)
+        }
 
-                return {
-                    id: result.indexOf(item),
-                    user:depositor,
-                    time: new Date(parseInt(depositTime)*1000).toLocaleString(),
-                    fee: (parseInt(scbFee) / scbUnitDecimals).toFixed(4),
-                    deposited: (parseInt(depositedBUSD) / busdUnitDecimals).toFixed(4),
-                    busd: (parseInt(busdReceived) / busdUnitDecimals).toFixed(4)
-                }
-
-            })
-
-            return mappedResult
-        } else if (network === 56) {
-            const {data} = await axios.get(this.EXPLORER_URL)
-            return data
-        } else if (network === 1) {} else if (network === 3) {}
-    }
-
-    async getDepositTokenLogs(network) {
-        if (network === 97) {
-            const topic0 = "0x1ab1cbe13cd8600861750d1e66621badf6b7b2d1443493b5e7845da6f35757b7"
-            const scbUnitDecimals = 1 * 10 ** 18
-            const busdUnitDecimals = 1 * 10 ** 18
-            const tokenUnitDecimals = 1 * 10 ** 18
-            const url = `https://api-testnet.bscscan.com/api?module=logs&action=getLogs&topic0=${topic0}&address=${this.SCB_VAULT}`
-            const {data} = await axios.get(url)
-            const {result} = data
-            const iface = new Interface(DEPOSIT_EVENT_ABI)
-            const mappedResult = result.map((item) => {
-                const {data} = item
-                console.log(data)
-                const decodedResult = iface.parseLog(item)
-                const {depositor, depositTime, scbFee, depositedETH, busdReceived} = decodedResult.args
-
-                return {
-                    id: result.indexOf(item),
-                    user:depositor,
-                    time: new Date(parseInt(depositTime)*1000).toLocaleString(),
-                    fee: (parseInt(scbFee) / scbUnitDecimals).toFixed(4),
-                    deposited: (parseInt(depositedETH) / tokenUnitDecimals).toFixed(4),
-                    busd: (parseInt(busdReceived) / busdUnitDecimals).toFixed(4)
-                }
-
-            })
-
-            return mappedResult
-        } else if (network === 56) {
-            const {data} = await axios.get(this.EXPLORER_URL)
-            return data
-        } else if (network === 1) {} else if (network === 3) {}
     }
 
 }
