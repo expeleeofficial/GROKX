@@ -17,5 +17,44 @@
 }
 
 body {
- 
+ background-color: #1F2937;
+}
+
+.centered{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.transparent{
+  color: transparent;
+}
+
+.bg-transparent{
+  background-color: transparent;
+} 
+
+.border-transparent{
+  background-color: transparent;
+} 
+
+.swap-input-cover{
+  background-color: #1e2329;
+  border-radius: 0.5rem;
+  height: 15vh;
+} 
+
+.token-holder {
+  width: 30px;
+  height: 30px;
+  min-height: 30px;
+  position: relative;
+  border-radius: 200px;
+}
+.token-img{
+  height: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 100%;
 }
