@@ -60,13 +60,13 @@ const About = () => {
                     </h1>
                 </div>
                 <p class="mb-6 text-base leading-7 text-gray-300 dark:text-gray-400">
-                Grok x is not just a meme coin; it's a playful revolution in the cryptocurrency world. Developed in collaboration with artist Matt Furie, creator of Pepe the Frog, grok x brings joy and positivity to the blockchain.  </p>
+                Grok x is not just a meme coin; it's a playful revolution in the cryptocurrency world. </p>
                 <p class="mb-6 text-base leading-7 text-gray-300 dark:text-gray-400"> Built on the bsc standard, grok x encourages community engagement, embraces humor, and incorporates charitable initiatives. Join the Hoppy movement and experience a fresh, fun approach to decentralized finance with a touch of meme magic!</p>
               
-                <a href="#"
+                {/* <a href="#"
                     class="px-4 py-2 text-gray-300 bg-blue-500 rounded dark:bg-blue-400 dark:hover:bg-blue-500 hover:bg-blue-600">
                     Learn more
-                </a>
+                </a> */}
             </div>
         </div>
     </div>
