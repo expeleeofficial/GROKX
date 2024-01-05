@@ -24,13 +24,6 @@ const people = [
         imageUrl:'https://static.wixstatic.com/media/82da36_c5552d41a13448ddb0c11d8faa1dc48a~mv2.png',
     },
 
-
-
-
-  
-
- 
-
     {
         imageUrl:'https://static.wixstatic.com/media/82da36_b70ad1fecfdf4cc3a5cfed9c471bf1ac~mv2.png/v1/fill/w_588,h_144,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/82da36_b70ad1fecfdf4cc3a5cfed9c471bf1ac~mv2.png'
     }

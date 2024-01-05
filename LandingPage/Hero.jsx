@@ -1,21 +1,22 @@
 
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
+// import { useState } from 'react'
+// import { Dialog } from '@headlessui/react'
 import About from './About'
 import Tokenomics from './Tokenomics'
 import Roadmap from './Roadmap'
 import Partners from './Partners'
+import NavBar from './Navbar'
 
 
-const navigation = [
-  { name: 'Telegram', href: 'https://t.me/grokxbnb' },
-  { name: 'Twitter', href: 'https://twitter.com/grokxbsc/' },
-  { name: 'Buy $GROKX', href: 'https://pancakeswap.finance/swap?outputCurrency=0xa7ffb399d44eb830f01751052C75d14f0b47E779' },
-  { name: 'Dapp', href: 'https://grok-new.vercel.app/' },
-]
+// const navigation = [
+//   { name: 'Telegram', href: 'https://t.me/grokxbnb' },
+//   { name: 'Twitter', href: 'https://twitter.com/grokxbsc/' },
+//   { name: 'Buy $GROKX', href: 'https://pancakeswap.finance/swap?outputCurrency=0xa7ffb399d44eb830f01751052C75d14f0b47E779' },
+//   { name: 'Dapp', href: 'https://grok-new.vercel.app/' },
+// ]
 
 export default function Hero() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  // const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
     <>
@@ -46,7 +47,8 @@ export default function Hero() {
           </defs>
         </svg>
       </div>
-      <div className="px-6 pt-6 lg:px-8">
+      <NavBar/>
+      {/* <div className="px-6 pt-6 lg:px-8">
         <nav className="flex items-center justify-between" aria-label="Global">
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
@@ -118,7 +120,7 @@ export default function Hero() {
             </div>
           </Dialog.Panel>
         </Dialog>
-      </div>
+      </div> */}
       <main>
         <div className="relative px-6 lg:px-8">
           <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-16">
