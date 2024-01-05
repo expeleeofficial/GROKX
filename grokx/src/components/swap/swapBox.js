@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useAccount, useBalance } from "wagmi";
 import Web3Utils from "../../utils";
-import { getNetwork } from "@wagmi/core";
 import { tokensMap } from "../../utils/constants";
 import Spinner from "react-bootstrap/esm/Spinner";
 
@@ -12,12 +11,11 @@ function SwapBox({
   to = undefined,
   rate,
   setRate,
+  network,
 }) {
   const { address, isConnected } = useAccount();
   const { data } = useBalance({ address });
   const [balance, setBalance] = useState(undefined);
-
-  const [network, setNetwork] = useState(undefined);
 
   const [swapAmount, setSwapAmount] = useState(0.01);
   const [loadingRate, setLoadingRate] = useState(false);
@@ -53,9 +51,9 @@ function SwapBox({
 
   useEffect(() => {
     if (isConnected) {
+      console.log(network);
       getRate(swapAmount);
       getSelectedBalance();
-      setNetwork(getNetwork());
     }
   }, [
     getRate,
@@ -65,6 +63,7 @@ function SwapBox({
     showRate,
     to,
     swapAmount,
+    network,
   ]);
   return (
     <div className="my-3 swap-box p-3">
@@ -82,9 +81,15 @@ function SwapBox({
                   style={{ height: "10px", width: "10px" }}
                 />
               ) : (
-                <p style={{ color: "white" }}>
-                  You will receive {rate} {selectedToken.name}
-                </p>
+                <div>
+                  {network ? (
+                    <p style={{ color: "white" }}>
+                      You will receive {rate} {selectedToken.name}
+                    </p>
+                  ) : (
+                    <p className="text-danger">Invalid Chain</p>
+                  )}
+                </div>
               )}
             </div>
           ) : (

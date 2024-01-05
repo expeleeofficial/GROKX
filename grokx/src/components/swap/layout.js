@@ -1,17 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SwapBox from "./swapBox";
 import SWAP from "../../assets/swap1.png";
-import LOGO from "../../assets/logo.png";
 import TokenModal from "./tokenModal";
 import { tokensMap } from "../../utils/constants";
+import { useNetwork } from "wagmi";
 
 function SwapLayout({ allTokens, setSelectedToken, selectedToken }) {
+  const { chain: currentChain } = useNetwork();
   const [toGrokx, setToGrokx] = useState(true);
   const [show, setShow] = useState(false);
   const [rate, setRate] = useState(undefined);
+  const [network, setNetwork] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    //   const acceptedChains =[97,56]
+    console.log(currentChain.id);
+    const acceptedChains = [97];
+    setNetwork(acceptedChains.includes(currentChain.id));
+  }, [currentChain]);
 
   return (
     <div
@@ -22,12 +31,18 @@ function SwapLayout({ allTokens, setSelectedToken, selectedToken }) {
     >
       <div className="card-body">
         <div>
-          <h3>Swap Stable Token</h3>
-          <p>Add liquidity to the ETH/GROKX pool and receive LP tokens</p>
+          <div className="d-flex justify-content-between">
+            <h3>Swap Stable Token</h3>
+            {!network && (
+              <span class="badge text-bg-danger">Invalid Chain</span>
+            )}
+          </div>
+          {/* <p>Add liquidity to the ETH/GROKX pool and receive LP tokens</p> */}
         </div>
         <hr className="my-2" />{" "}
         {toGrokx ? (
           <SwapBox
+            network={network}
             rate={rate}
             setRate={setRate}
             selectedToken={selectedToken}
@@ -36,6 +51,7 @@ function SwapLayout({ allTokens, setSelectedToken, selectedToken }) {
           />
         ) : (
           <SwapBox
+            network
             rate={rate}
             setRate={setRate}
             selectedToken={tokensMap.testnet.tokens[1]}
@@ -58,6 +74,7 @@ function SwapLayout({ allTokens, setSelectedToken, selectedToken }) {
         </div>
         {toGrokx ? (
           <SwapBox
+            network
             rate={rate}
             setRate={setRate}
             selectedToken={tokensMap.testnet.tokens[1]}
@@ -67,6 +84,7 @@ function SwapLayout({ allTokens, setSelectedToken, selectedToken }) {
           />
         ) : (
           <SwapBox
+            network
             rate={rate}
             setRate={setRate}
             selectedToken={selectedToken}
