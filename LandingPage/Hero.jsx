@@ -6,6 +6,7 @@ import Tokenomics from './Tokenomics'
 import Roadmap from './Roadmap'
 import Partners from './Partners'
 import NavBar from './Navbar'
+import Slider from './Slider'
 
 
 // const navigation = [
@@ -187,6 +188,7 @@ export default function Hero() {
       <About />
       <Tokenomics />
       <Roadmap />
+      <Slider/>
       <Partners />
     </div>
  

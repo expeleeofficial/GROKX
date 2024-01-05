@@ -19,3 +19,50 @@
 body {
  
 }
+
+
+.image-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-container .image-sprite {
+  height: 266px; 
+  background-image: url('../public/Slider1.png');
+  background-size: 1790px 266px;
+  animation: slide 50s linear infinite;
+}
+
+@keyframes slide {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -2956px; 
+  }
+}
+
+
+.image-container1 {
+  top: 24px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-container1 .image-sprite1 {
+  height: 266px; 
+  background-image: url('../public/Slider2.png');
+  background-size: 1790px 266px;
+  animation: slide1 50s linear infinite;
+}
+
+@keyframes slide1 {
+  from {
+    background-position-x: -2956px;
+  }
+  to {
+    background-position-x: 0; 
+  }
+}
