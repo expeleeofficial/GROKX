@@ -1,24 +1,25 @@
 body {
+  background-color: #f7f7f7;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .icon-holder {
-  width:25px;
-  height:25px;
-  min-height:25px;
+  width: 25px;
+  height: 25px;
+  min-height: 25px;
   position: relative;
 }
-.icon-img{
+.icon-img {
   height: 100%;
   position: relative;
   background-size: cover;
@@ -26,13 +27,13 @@ code {
 }
 
 .logo-holder {
-  width:40px;
-  height:40px;
-  min-height:40px;
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
   position: relative;
   border-radius: 200px;
 }
-.logo-img{
+.logo-img {
   height: 100%;
   position: relative;
   background-size: cover;
@@ -47,7 +48,7 @@ code {
   position: relative;
   border-radius: 200px;
 }
-.token-img{
+.token-img {
   height: 100%;
   position: relative;
   background-size: cover;
@@ -55,31 +56,97 @@ code {
   border-radius: 100%;
 }
 
-.centered{
+.token-sm-holder {
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  position: relative;
+  border-radius: 200px;
+}
+.token-sm-img {
+  height: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 100%;
+}
+
+.centered {
   justify-content: center;
   align-items: center;
   display: flex;
 }
 
-input:focus, input.form-control:focus {
-
-  outline:none !important;
+input:focus,
+input.form-control:focus {
+  outline: none !important;
   outline-width: 0 !important;
   box-shadow: none;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
 }
-.input-custom{
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.input-custom {
   border: 0px;
 }
 
-.custom-color{
+.custom-color {
   color: rgb(188, 178, 178);
 }
 
-.swap-box{
+.btn-custom {
+  background-color: #6d9886;
+  border-color: #6d9886;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-custom:hover {
+  background-color: #496d5e;
+  border-color: #496d5e;
+  color: white;
+}
+
+.btn-custom:disabled {
+  background-color: #6d9886;
+  border-color: #6d9886;
+  color: white;
+}
+
+.swap-box {
   border-radius: 20px;
   border-width: 2px;
   border-color: black;
-  background-color: rgb(188, 178, 178);
+  background-color: #91afa2;
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+.btn-custom,
+.text-custom,
+.color-custom,
+.modal-list {
+  font-family: "Jost";
 }

@@ -1,7 +1,7 @@
 function StakeLayout() {
     return (
         <div
-            className="card col-6"
+            className="card col-5"
             style={{
             borderRadius: "20px"
         }}>
