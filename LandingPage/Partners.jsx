@@ -4,28 +4,28 @@ const people = [
    
   
     {
-        imageUrl:'https://static.wixstatic.com/media/82da36_9ce82119691f48fb8fc5b4d0f7c88284~mv2.png',
+      imageUrl: '/Logo 1.png',
     },
 
     
     {
-        imageUrl:'https://static.wixstatic.com/media/82da36_54de57b5b50c4f52908886697ca60e0b~mv2.webp',
+        imageUrl:'/Logo 2.png',
     },
 
     {
-        imageUrl:'https://static.wixstatic.com/media/82da36_f56f58683fb1446c9bc51e14ac63d63b~mv2.png',
+        imageUrl:'/Logo 3.png',
     },
 
     {
-        imageUrl:'https://static.wixstatic.com/media/82da36_4dab1abc452342db8c83aacb5b892832~mv2.png',
+        imageUrl:'/Logo 4.png',
     },
 
     {
-        imageUrl:'https://static.wixstatic.com/media/82da36_c5552d41a13448ddb0c11d8faa1dc48a~mv2.png',
+        imageUrl:'/Logo 5.png',
     },
 
     {
-        imageUrl:'https://static.wixstatic.com/media/82da36_b70ad1fecfdf4cc3a5cfed9c471bf1ac~mv2.png/v1/fill/w_588,h_144,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/82da36_b70ad1fecfdf4cc3a5cfed9c471bf1ac~mv2.png'
+        imageUrl:'/Logo 6.png'
     }
   ]
 
@@ -42,16 +42,15 @@ const Partners = () => {
         
        </div>
        <div className="lg:col-span-2">
-         <ul role="list" className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-12 sm:space-y-0 lg:gap-x-8">
-           {people.map((person) => (
-             <li key={person}>
-               <div className="flex items-center justify-center space-x-4 lg:space-x-6">
-                 <img className="h-28 w-56 rounded-xl bg-white lg:h-28 lg:w-56" src={person.imageUrl} alt="" />
-                
-               </div>
-             </li>
-           ))}
-         </ul>
+       <ul role="list" className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-12 sm:space-y-0 lg:gap-x-8">
+              {people.map((person, index) => (
+                <li key={index}>
+                  <div className="flex items-center justify-center space-x-4 lg:space-x-6">
+                    <img className="h-28 w-56 rounded-xl bg-white lg:h-28 lg:w-56" src={person.imageUrl} alt={`Partner ${index}`} />
+                  </div>
+                </li>
+              ))}
+            </ul>
        </div>
      </div>
    </div>

@@ -19,7 +19,7 @@ const Navbar = () => {
                     <div className="space-x-12 font-semibold">
                         <a href="https://t.me/grokxbnb">Telegram</a>
                         <a href="https://twitter.com/grokxbsc/">Twitter</a>
-                        <a href="https://pancakeswap.finance/swap?outputCurrency=0xa7ffb399d44eb830f01751052C75d14f0b47E779">Buy $GROKX</a>
+                        <a href="https://grok-new.vercel.app/swap">Buy $GROKX</a>
                         <a href="https://grok-new.vercel.app/">Dapp</a>
                     </div>
 
@@ -49,7 +49,7 @@ const Navbar = () => {
                 <div className="py-2 pl-2 md:hidden">
                     <a href="https://t.me/grokxbnb" className="block px-4 py-2">Telegram</a>
                     <a href="https://twitter.com/grokxbsc/" className="block px-4 py-2">Twitter</a>
-                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xa7ffb399d44eb830f01751052C75d14f0b47E779" className="block px-4 py-2">Buy $GROKX</a>
+                    <a href="https://grok-new.vercel.app/swap" className="block px-4 py-2">Buy $GROKX</a>
                     <a href="https://grok-new.vercel.app/" className="block px-4 py-2">Dapp</a>
 
 
